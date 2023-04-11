@@ -3,7 +3,7 @@
 <div class="card">
     <div class="header">
         <h1>
-            Donor Details
+            Patient Details
         </h1>
     </div>
         <div class="body">
@@ -16,21 +16,19 @@
                             <th>Age</th>
                             <th>Gender</th>
                             <th>Medical History</th>
-                            <th>Donation History</th>
                             <th>Blood Group</th>
                             <th>Contact</th>
                     </tr>
                     </thead>
-                    {% for donor in donors %}
+                    {% for patient in patients %}
                     <tbody>
                         <tr>
-                            <th>{{donor.name}}</th>
-                            <th>{{donor.age}}</th>
-                            <th>{{donor.gender}}</th>
-                            <th>{{donor.medical_history}}</th>
-                            <th>{{donor.donation_history|linebreaks}}</th>
-                            <th>{{donor.blood_group}}</th>
-                            <th>{{donor.contact}}</th>
+                            <th>{{patient.name}}</th>
+                            <th>{{patient.age}}</th>
+                            <th>{{patient.gender}}</th>
+                            <th>{{patient.medical_history}}</th>
+                            <th>{{patient.blood_group}}</th>
+                            <th>{{patient.contact}}</th>
                         </tr>
                     </tbody>
                     {% endfor %}

@@ -3,7 +3,7 @@
 <div class="card">
     <div class="header">
         <h1>
-            Donor Details
+            Transfusion Details
         </h1>
     </div>
         <div class="body">
@@ -12,25 +12,19 @@
                 <table class="table table-bordered table-striped table-hover dataTable">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Medical History</th>
-                            <th>Donation History</th>
-                            <th>Blood Group</th>
-                            <th>Contact</th>
+                            <th>Patient Name</th>
+                            <th>Date</th>
+                            <th>Quantity</th>
+                            <th>Donor Name</th>
                     </tr>
                     </thead>
-                    {% for donor in donors %}
+                    {% for transfusion in transfusions %}
                     <tbody>
                         <tr>
-                            <th>{{donor.name}}</th>
-                            <th>{{donor.age}}</th>
-                            <th>{{donor.gender}}</th>
-                            <th>{{donor.medical_history}}</th>
-                            <th>{{donor.donation_history|linebreaks}}</th>
-                            <th>{{donor.blood_group}}</th>
-                            <th>{{donor.contact}}</th>
+                            <th>{{transfusion.patient_name}}</th>
+                            <th>{{transfusion.date_used}}</th>
+                            <th>{{transfusion.quantity_used}}</th>
+                            <th>{{transfusion.donor_name}}</th>
                         </tr>
                     </tbody>
                     {% endfor %}
