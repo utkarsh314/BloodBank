@@ -11,6 +11,10 @@ class Donor(models.Model):
     B = models.BooleanField(null=False)
     Rh = models.BooleanField(null=False)
 
+class DonorContact(models.Model):
+    contact = models.CharField(max_length = 50, null=False)
+    donor = models.ForeignKey(Donor, on_delete = models.CASCADE)
+
 class Sample(models.Model):
     donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
     date_donated = models.DateField(null=False)
@@ -27,6 +31,10 @@ class Patient(models.Model):
     A = models.BooleanField(null=False)
     B = models.BooleanField(null=False)
     Rh = models.BooleanField(null=False)
+
+class PatientContact(models.Model):
+    contact = models.CharField(max_length=50, null=False)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
 class Donation(models.Model):
     date_used = models.DateField(null=False)

@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS bloodbank;
+USE bloodbank;
 --
 -- Create model Donor
 --
@@ -54,14 +56,40 @@ CREATE TABLE `bms_donation` (
 ALTER TABLE
     `bms_sample`
 ADD
-    CONSTRAINT `bms_sample_donor_id_8055285f_fk_bms_donor_id` FOREIGN KEY (`donor_id`) REFERENCES `bms_donor` (`id`);
+    CONSTRAINT `donated` FOREIGN KEY (`donor_id`) REFERENCES `bms_donor` (`id`);
 
 ALTER TABLE
     `bms_donation`
 ADD
-    CONSTRAINT `bms_donation_patient_id_61e4c695_fk_bms_patient_id` FOREIGN KEY (`patient_id`) REFERENCES `bms_patient` (`id`);
+    CONSTRAINT `used_by` FOREIGN KEY (`patient_id`) REFERENCES `bms_patient` (`id`);
 
 ALTER TABLE
     `bms_donation`
 ADD
-    CONSTRAINT `bms_donation_sample_id_17da77c2_fk_bms_sample_id` FOREIGN KEY (`sample_id`) REFERENCES `bms_sample` (`id`);
+    CONSTRAINT `used_in` FOREIGN KEY (`sample_id`) REFERENCES `bms_sample` (`id`);
+
+--
+-- Create model PatientContact
+--
+CREATE TABLE `bms_patientcontact` (
+    `contact` varchar(50) NOT NULL,
+    `patient_id` bigint NOT NULL
+);
+
+--
+-- Create model DonorContact
+--
+CREATE TABLE `bms_donorcontact` (
+    `contact` varchar(50) NOT NULL,
+    `donor_id` bigint NOT NULL
+);
+
+ALTER TABLE
+    `bms_patientcontact`
+ADD
+    CONSTRAINT `patientcontact` FOREIGN KEY (`patient_id`) REFERENCES `bms_patient` (`id`);
+
+ALTER TABLE
+    `bms_donorcontact`
+ADD
+    CONSTRAINT `donorcontact̀` FOREIGN KEY (`donor_id`) REFERENCES `bms_donor` (`id`);
