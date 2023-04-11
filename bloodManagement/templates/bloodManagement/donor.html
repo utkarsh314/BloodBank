@@ -1,0 +1,62 @@
+{% extends "bloodManagement/base.html" %}
+{% block body %}
+<div class="card">
+    <div class="header">
+        <h1>
+            Donor Details
+        </h1>
+    </div>
+        <div class="body">
+            <div class="table-responsive">
+
+                <!--<table class="table table-bordered table-striped table-hover dataTable">
+                    <thead>
+                        <tr>
+                            <th>Total</th>
+                            <th>Scanned</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{total_tickets}}</td>
+                            <td>{{consumed_tickets}}</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </div>
+        </div>
+</div>
+<div class="card">
+            <!-- <div class="header">
+                <h2>
+                {{user.name}} : {{user.email}} : {{user.qr_code}}
+                <h2>
+                    <small><a href="{{qr_link}}">Get Qr</a></small>
+            </div> -->
+            <div class="body">
+                <div class="table-responsive">
+
+                    <!-- <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <thead>
+                            <tr>
+                                <th>Ticket</th>
+                                <th>Combo</th>
+                                <th>Used</th>
+                                <th>Used At</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for t in all_user_tickets %}
+                                <tr>
+                                    <th>{{t.prof_show.name}}</th>
+                                    <th>{% if t.combo %}{{t.combo.name}}{% endif %}</th>
+                                    <th>{{t.consumed}}</th>
+                                    <th>{{t.used_time}}</th>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table> -->
+                </div>
+            </div>
+        </div>
+{% endblock %}
